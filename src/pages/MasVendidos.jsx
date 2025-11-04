@@ -1,27 +1,19 @@
-import { useEffect, useState } from 'react'
-import { getBooks } from '../services/api'
+// src/pages/MasVendidos.jsx
+import React from 'react'
+import useBooks from '../hooks/useBooks'
 import LibrosGrid from '../components/LibrosGrid'
 
 export default function MasVendidos() {
-  const [libros, setLibros] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    getBooks({ bestSeller: 1 })
-      .then((data) => setLibros(data))
-      .catch((err) => setError(err.message))
-      .finally(() => setLoading(false))
-  }, [])
+  const { books: libros, loading, error } = useBooks({ bestSeller: 1 })
 
   return (
     <div className="container-md my-5 pt-4">
       <h2 className="text-center mb-4">🏆 Más vendidos</h2>
 
-      {loading && <p className="text-center">Cargando libros...</p>}
+      {loading && <p className="text-center">Cargando libros…</p>}
       {error && (
         <p className="text-center text-danger">
-          Error al cargar los datos: {error}
+          Error al cargar los datos: {error.message || error}
         </p>
       )}
 
