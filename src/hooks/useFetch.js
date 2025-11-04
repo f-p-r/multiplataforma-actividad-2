@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 /**
- * Hook reutilizable para realizar peticiones GET con Axios.
+ * Custom hook reutilizable para realizar peticiones GET con Axios.
  * @param {string} endpoint - Ruta del recurso (por ejemplo, '/books')
  * @param {boolean} [autoLoad=true] - Si true, carga automáticamente al montar el componente.
  * @returns {object} { data, loading, error, refetch }

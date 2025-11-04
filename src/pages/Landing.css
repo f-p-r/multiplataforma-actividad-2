@@ -1,0 +1,33 @@
+.landing-container {
+  font-family: Tahoma, sans-serif;
+}
+
+.landing-img {
+  float: right;
+  width: 50%;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px #00000026;
+}
+
+.landing-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .landing-img {
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+  }
+
+  .landing-text {
+    text-align: left;
+  }
+}

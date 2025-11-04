@@ -2,32 +2,38 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/apidog',
-  headers: { 'Content-Type': 'application/json' }
+  baseURL: '/apifpr',
+  headers: { 'Content-Type': 'application/json' },
 })
 
-// Función genérica (por si quieres logs o manejo centralizado)
-async function apiRequest(endpoint, method = 'GET', body = null) {
+// 🔧 Función genérica extendida: acepta body y params
+async function apiRequest(endpoint, method = 'GET', body = null, params = null) {
   try {
     const response = await api.request({
       url: endpoint,
       method,
-      data: body
+      data: body,
+      params, // 👈 permite enviar filtros tipo ?new=1 o ?authorId=2
     })
     return response.data
   } catch (error) {
     console.error(`❌ Error en ${endpoint}:`, error.response?.status, error.response?.data)
-    return null
+    throw error // mejor lanzar el error para que los componentes puedan manejarlo
   }
 }
 
-// Funciones específicas
-export const getBooks = () => apiRequest('/books')
+// ------------------------------------------------------
+// 📚 Funciones específicas de acceso a la API
+// ------------------------------------------------------
+
+// Permite pasar filtros: getBooks({ new: 1 }), getBooks({ categoryId: 2 }), etc.
+export const getBooks = (params = {}) => apiRequest('/books', 'GET', null, params)
+
 export const getBookById = (id) => apiRequest(`/books/${id}`)
 export const getAuthors = () => apiRequest('/authors')
 export const getCategories = () => apiRequest('/categories')
 export const getPublishers = () => apiRequest('/publishers')
-export const getReviewsByBook = (bookId) => apiRequest(`/reviews/search/?bookId=${bookId}`)
+export const getReviewsByBook = (bookId) => apiRequest(`/reviews/search`, 'GET', null, { bookId })
 
-// Portadas (rutas relativas sin '/' inicial)
-export const getCoverImagePath = (bookId) => `portadas/${bookId}.jpg`
+// 🖼️ Ruta de las portadas
+export const getCoverImagePath = (bookId) => `img/portadas/${bookId}.jpg`

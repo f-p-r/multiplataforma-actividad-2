@@ -7,7 +7,7 @@ export default defineConfig({
   base: './', // rutas relativas para despliegue en subcarpetas
   server: {
     proxy: {
-      '/apidog': {
+      '/apifpr': {
         target: 'https://lawebdeperez.es',
         changeOrigin: true,
         secure: false,

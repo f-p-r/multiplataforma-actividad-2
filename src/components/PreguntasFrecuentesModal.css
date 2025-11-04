@@ -1,0 +1,31 @@
+/* === Modal de Preguntas Frecuentes === */
+
+.accordion-header {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.accordion-header:hover {
+  background-color: #e9ecef;
+}
+
+.accordion-header.activa {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.accordion-body {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  padding: 12px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
