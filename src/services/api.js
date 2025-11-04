@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: '/apifpr',
+  baseURL: 'https://lawebdeperez.es/apifpr', //@@@
   headers: { 'Content-Type': 'application/json' },
 })
 

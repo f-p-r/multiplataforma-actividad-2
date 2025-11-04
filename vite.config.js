@@ -8,6 +8,7 @@ export default defineConfig(({ command }) => {
     base: isDev ? '/' : '/multiplataforma_a2/',
     plugins: [react()],
     server: {
+      /* Hemos reconfigurado la API para evitar CORS desde el front-end. El proxy ya no es necesario.
       proxy: {
         '/apifpr': {
           target: 'https://lawebdeperez.es',
@@ -15,6 +16,7 @@ export default defineConfig(({ command }) => {
           secure: false,
         },
       },
+      */
     },
   }
 })
