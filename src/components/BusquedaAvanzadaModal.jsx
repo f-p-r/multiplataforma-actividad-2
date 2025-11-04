@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getBooks, getAuthors, getCategories, getPublishers } from '../services/api'
+import './BusquedaAvanzadaModal.css'  // Importa los estilos personalizados
 
 export default function BusquedaAvanzadaModal({ onClose, onResultados }) {
   const [filters, setFilters] = useState({
@@ -54,13 +55,8 @@ export default function BusquedaAvanzadaModal({ onClose, onResultados }) {
   return (
     <>
       <div className="modal-backdrop fade show" style={{ backgroundColor: '#0009' }}></div>
-      <div
-        className="modal d-block"
-        tabIndex="-1"
-        role="dialog"
-        style={{ zIndex: 1050 }}
-      >
-        <div className="modal-dialog modal-lg modal-dialog-centered">
+      <div className="modal d-block" tabIndex="-1" role="dialog" style={{ zIndex: 1050 }}>
+        <div className="modal-dialog modal-custom-wide modal-dialog-centered">
           <div className="modal-content p-4">
             <button
               type="button"
@@ -129,7 +125,7 @@ export default function BusquedaAvanzadaModal({ onClose, onResultados }) {
                   type="number"
                   name="yearFrom"
                   placeholder="Año desde"
-                  className="form-control"
+                  className="form-control small-input"
                   value={filters.yearFrom}
                   onChange={handleChange}
                 />
@@ -140,7 +136,7 @@ export default function BusquedaAvanzadaModal({ onClose, onResultados }) {
                   type="number"
                   name="yearTo"
                   placeholder="Año hasta"
-                  className="form-control"
+                  className="form-control small-input"
                   value={filters.yearTo}
                   onChange={handleChange}
                 />
@@ -152,7 +148,7 @@ export default function BusquedaAvanzadaModal({ onClose, onResultados }) {
                   step="0.01"
                   name="priceMin"
                   placeholder="Precio mín."
-                  className="form-control"
+                  className="form-control small-input"
                   value={filters.priceMin}
                   onChange={handleChange}
                 />
@@ -164,7 +160,7 @@ export default function BusquedaAvanzadaModal({ onClose, onResultados }) {
                   step="0.01"
                   name="priceMax"
                   placeholder="Precio máx."
-                  className="form-control"
+                  className="form-control small-input"
                   value={filters.priceMax}
                   onChange={handleChange}
                 />

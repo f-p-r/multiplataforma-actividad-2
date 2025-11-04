@@ -1,0 +1,17 @@
+# .htaccess para React SPA en subdirectorio /multiplataforma_a2
+<IfModule mod_rewrite.c>
+  Options -MultiViews
+  RewriteEngine On
+  RewriteBase /multiplataforma_a2/
+
+  # No reescribir index.html
+  RewriteRule ^index\.html$ - [L]
+
+  # No reescribir si es archivo o directorio existente
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Para todo lo demás, servir index.html
+  RewriteRule . /multiplataforma_a2/index.html [L]
+</IfModule>

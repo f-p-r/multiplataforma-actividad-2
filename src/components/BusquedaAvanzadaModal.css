@@ -1,0 +1,16 @@
+.modal-custom-wide {
+  width: 90%;
+  max-width: 600px !important;   
+  margin: 1.5rem auto;
+}
+
+@media (max-width: 992px) {
+  .modal-custom-wide {
+    width: 95%;
+    max-width: 95%;
+  }
+}
+
+.small-input {
+  font-size: 0.85rem !important; 
+}
