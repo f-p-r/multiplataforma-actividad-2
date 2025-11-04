@@ -1,0 +1,13 @@
+.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.no-bullets li {
+  margin-bottom: 0.5rem;
+}
+
+.sobre-nexus{
+    margin-top: 140px;
+}

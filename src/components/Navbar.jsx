@@ -54,6 +54,9 @@ export default function Navbar() {
                 <NavLink className="nav-link" to="/mas-vendidos">Más vendidos</NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className="nav-link" to="/sobre-nexus">Sobre Nexus</NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink
                   className="nav-link"
                   to='undefined'

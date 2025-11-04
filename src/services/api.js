@@ -34,6 +34,6 @@ export const getAuthors = () => apiRequest('/authors')
 export const getCategories = () => apiRequest('/categories')
 export const getPublishers = () => apiRequest('/publishers')
 export const getReviewsByBook = (bookId) => apiRequest(`/reviews/search`, 'GET', null, { bookId })
-
-// 🖼️ Ruta de las portadas
+export const getLibraryInfo = () => apiRequest('/library')
+// 🖼️ Ruta de las portadas. No requiere consultar el backend
 export const getCoverImagePath = (bookId) => `img/portadas/${bookId}.jpg`

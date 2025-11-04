@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 // Contextos
 import { AuthProvider } from './context/AuthContext.jsx'
-import { CarritoProvider } from './context/CarritoContext.jsx'
 
 //  Componentes
 import Navbar from './components/Navbar'
@@ -18,11 +17,12 @@ import MasVendidos from './pages/MasVendidos.jsx'
 import ResultadosBusqueda from './pages/ResultadosBusqueda.jsx'
 import Login from './pages/Login.jsx'
 import CarritoPage from './pages/CarritoPage.jsx'
+import SobreNexus from './pages/SobreNexus.jsx'
 
 function AppWrapper() {
   const [resultados, setResultados] = useState(null)
   const location = useLocation()
-  const mostrarBarra = location.pathname !== '/login'
+  const mostrarBarra = !['/login', '/sobre-nexus'].includes(location.pathname)
 
   return (
     <>
@@ -53,6 +53,8 @@ function AppWrapper() {
             </ProtectedRoute>
           }
         />
+        {/* Sobre Nexus  */}
+        <Route path="/sobre-nexus" element={<SobreNexus />} />
       </Routes>
     </>
   )
@@ -61,11 +63,9 @@ function AppWrapper() {
 export default function App() {
   return (
     <AuthProvider>
-      <CarritoProvider>
         <BrowserRouter basename={import.meta.env.DEV ? '/' : '/multiplataforma_a2'}>
           <AppWrapper />
         </BrowserRouter>
-      </CarritoProvider>
     </AuthProvider>
   )
 }
