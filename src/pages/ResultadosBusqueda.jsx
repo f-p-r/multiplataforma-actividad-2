@@ -1,5 +1,4 @@
 // src/pages/ResultadosBusqueda.jsx
-import React from 'react'
 import useBooks from '../hooks/useBooks'
 import LibrosGrid from '../components/LibrosGrid'
 
